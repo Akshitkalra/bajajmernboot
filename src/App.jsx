@@ -198,7 +198,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="footer">
-        <span>Akshit Kalra · Roll No. 2310990273 · Chitkara University</span>
+        <span>Manya Batra · Roll No. 2310992064 · Chitkara University</span>
         <span className="footer-sep">·</span>
         <span>BFHL API · MERN Stack</span>
       </footer>
