@@ -1,7 +1,15 @@
 {
-  "rewrites": [
-    { "source": "/bfhl", "destination": "/api/index" },
-    { "source": "/health", "destination": "/api/index" },
-    { "source": "/((?!api).*)", "destination": "/index.html" }
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    { "src": "/bfhl",            "dest": "/api/index.js" },
+    { "src": "/actuator/health", "dest": "/api/index.js" },
+    { "src": "/actuator/info",   "dest": "/api/index.js" },
+    { "src": "/(.*)",            "dest": "/api/index.js" }
   ]
 }
