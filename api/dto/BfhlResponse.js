@@ -24,6 +24,7 @@ class BfhlResponse {
     this.even_numbers       = even_numbers;
     this.alphabets          = alphabets;
     this.special_characters = special_characters;
+    this.sepcial_characters = special_characters; // Supports both spellings (typo-safe)
     this.sum                = sum;
     this.concat_string      = concat_string;
   }
@@ -56,6 +57,7 @@ class BfhlResponse {
       even_numbers:       this.even_numbers,
       alphabets:          this.alphabets,
       special_characters: this.special_characters,
+      sepcial_characters: this.sepcial_characters, // Typo version from spec
       sum:                this.sum,
       concat_string:      this.concat_string,
     };

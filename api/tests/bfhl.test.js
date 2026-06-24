@@ -32,6 +32,7 @@ describe('POST /bfhl', () => {
     test('even_numbers = ["334","4"]',  () => expect(res.body.even_numbers).toEqual(['334', '4']));
     test('alphabets = ["A","R"]',       () => expect(res.body.alphabets).toEqual(['A', 'R']));
     test('special_characters = ["$"]',  () => expect(res.body.special_characters).toEqual(['$']));
+    test('sepcial_characters = ["$"]',  () => expect(res.body.sepcial_characters).toEqual(['$']));
     test('sum = "339"',                 () => expect(res.body.sum).toBe('339'));
     test('concat_string = "Ra"',        () => expect(res.body.concat_string).toBe('Ra'));
     test('numbers returned as strings', () => {
@@ -53,6 +54,8 @@ describe('POST /bfhl', () => {
     test('alphabets = ["A","Y","B"]',      () => expect(res.body.alphabets).toEqual(['A', 'Y', 'B']));
     test('special_characters = ["&","-","*"]', () =>
       expect(res.body.special_characters).toEqual(['&', '-', '*']));
+    test('sepcial_characters = ["&","-","*"]', () =>
+      expect(res.body.sepcial_characters).toEqual(['&', '-', '*']));
     test('sum = "103"',                    () => expect(res.body.sum).toBe('103'));
     test('concat_string = "ByA"',         () => expect(res.body.concat_string).toBe('ByA'));
   });
@@ -70,6 +73,7 @@ describe('POST /bfhl', () => {
     test('alphabets = ["A","ABCD","DOE"]',  () =>
       expect(res.body.alphabets).toEqual(['A', 'ABCD', 'DOE']));
     test('special_characters = []',         () => expect(res.body.special_characters).toEqual([]));
+    test('sepcial_characters = []',         () => expect(res.body.sepcial_characters).toEqual([]));
     test('sum = "0"',                       () => expect(res.body.sum).toBe('0'));
     test('concat_string = "EoDdCbAa"',     () => expect(res.body.concat_string).toBe('EoDdCbAa'));
   });
@@ -85,7 +89,7 @@ describe('POST /bfhl', () => {
       const required = [
         'is_success', 'user_id', 'email', 'roll_number',
         'odd_numbers', 'even_numbers', 'alphabets',
-        'special_characters', 'sum', 'concat_string',
+        'special_characters', 'sepcial_characters', 'sum', 'concat_string',
       ];
       required.forEach(key => expect(res.body).toHaveProperty(key));
     });
@@ -140,6 +144,7 @@ describe('POST /bfhl', () => {
       const res = await post(['$', '@', '#']);
       expect(res.status).toBe(200);
       expect(res.body.special_characters).toEqual(['$', '@', '#']);
+      expect(res.body.sepcial_characters).toEqual(['$', '@', '#']);
       expect(res.body.alphabets).toEqual([]);
       expect(res.body.odd_numbers).toEqual([]);
       expect(res.body.even_numbers).toEqual([]);

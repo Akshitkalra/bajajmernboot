@@ -40,7 +40,15 @@ const bfhlController = new BfhlController(bfhlService);
 // ── Routes ────────────────────────────────────────────────────────────────────
 app.use('/bfhl', bfhlController.getRouter());
 
-// ── Spring Boot Actuator endpoints ────────────────────────────────────────────
+// ── Health Check endpoints ───────────────────────────────────────────────────
+app.get('/health', (_req, res) => {
+  res.status(200).json({
+    status:    'UP',
+    timestamp: new Date().toISOString(),
+    message:   'BFHL API is running'
+  });
+});
+
 app.get('/actuator/health', (_req, res) => {
   res.status(200).json({
     status: 'UP',
